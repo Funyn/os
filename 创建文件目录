@@ -1,0 +1,20 @@
+import os
+from random import randint
+
+try:
+	homepath = os.path.expanduser('~')     #返回user的目录,也可以输入完整的路径
+
+	if not os.path.exists(os.path.join(home,'rookie')):  #是否有 C:\Users\Administrator\rookie这个文件目录
+		os.mkdir(os.path.join(home,'rookie'))   #没有则创建
+	else:
+		os.mkdir(os.path.join(os.getcwd(),'rookie%s'%randint(1,10))) #有则创建一个尾数随机的rookie的文件目录
+
+except Exception as e: 
+	print(e)
+
+
+#os.getcwd() 当前脚本工作目录
+#os.mkdir() 创建文档
+#os.path.join  连接目录和文件名
+#os.path.exists 判断文件是否存在
+#os.expanduser 返回user的路径
